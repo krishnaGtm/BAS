@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4bc28d70058446fbc8092b29b23cb9f" Name="Diagram1">
+        <EntityTypeShape EntityType="Enza.DataAccess.Batch" Width="1.5" PointX="5.25" PointY="28.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Country" Width="1.5" PointX="3.75" PointY="17.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.CropGroup" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.CropRD" Width="1.5" PointX="1.5" PointY="36" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Entity" Width="1.5" PointX="3" PointY="25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.EntityType" Width="1.5" PointX="0.75" PointY="22.375" />
+        <EntityTypeShape EntityType="Enza.DataAccess.FieldSet" Width="1.5" PointX="8.75" PointY="34.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Lot" Width="1.5" PointX="11.25" PointY="25.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.ObsChar" Width="1.5" PointX="13.5" PointY="32.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.ObsDate" Width="1.5" PointX="13.5" PointY="27.5" />
+        <EntityTypeShape EntityType="Enza.DataAccess.ObsDec" Width="1.5" PointX="13.5" PointY="29.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Observation" Width="1.5" PointX="11.25" PointY="30.125" />
+        <EntityTypeShape EntityType="Enza.DataAccess.ObsInt" Width="1.5" PointX="13.5" PointY="34.625" />
+        <EntityTypeShape EntityType="Enza.DataAccess.PhysicalLocation" Width="1.5" PointX="6" PointY="17.625" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Plant_part_" Width="1.5" PointX="11.25" PointY="21.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Position" Width="1.5" PointX="8.25" PointY="21.625" />
+        <EntityTypeShape EntityType="Enza.DataAccess.PropertyOfEntity" Width="1.5" PointX="3" PointY="21.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Relationship" Width="1.5" PointX="5.25" PointY="22.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Trait" Width="1.5" PointX="0.75" PointY="26.625" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TraitInFieldSet" Width="1.5" PointX="11" PointY="34.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TraitType" Width="1.5" PointX="1.5" PointY="33.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TraitValue" Width="1.5" PointX="3" PointY="30.25" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Trial" Width="1.5" PointX="8.25" PointY="25.5" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TrialEntry" Width="1.5" PointX="5.25" PointY="31.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TrialRegion" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.TrialType" Width="1.5" PointX="6" PointY="34.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Variety" Width="1.5" PointX="8.25" PointY="29" />
+        <EntityTypeShape EntityType="Enza.DataAccess.VarietyGroup" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.VarietyInGroup" Width="1.5" PointX="5.25" PointY="25.875" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_Bvarieties" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_FieldBooks" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_Fields" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_Lots" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_Plants" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Enza.DataAccess.Eazy_Vvarieties" Width="1.5" PointX="4.75" PointY="3.75" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Batch_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Batch_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_PhysicalLocation_Country" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trial_Country" />
+        <AssociationConnector Association="Enza.DataAccess.FK_CropRD_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_FieldSet_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_PropertyOfEntity_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trait_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TraitType_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TrialRegion_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TrialType_CropGroup" />
+        <AssociationConnector Association="Enza.DataAccess.FK_FieldSet_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Lot_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Plant_part__CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trait_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trial_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TrialLine_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Variety_CropRD" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Entity_EntityType" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Lot_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Observation_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Plant_part__Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Position_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Relationship_Entity1" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Relationship_Entity2" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trial_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TrialLine_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Variety_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_VarietyInGroup_Entity" />
+        <AssociationConnector Association="Enza.DataAccess.FK_PropertyOfEntity_EntityType" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Relationship_EntityType1" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Relationship_EntityType2" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TraitInFieldSet_FieldSet" />
+        <AssociationConnector Association="Enza.DataAccess.FK_ObsChar_Observation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_ObsDate_Observation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_ObsDec_Observation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Observation_Trait" />
+        <AssociationConnector Association="Enza.DataAccess.FK_ObsInt_Observation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_PhysicalLocation_PhysicalLocation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Position_PhysicalLocation" />
+        <AssociationConnector Association="Enza.DataAccess.FK_PropertyOfEntity_Trait" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trait_TraitType" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TraitInFieldSet_Trait" />
+        <AssociationConnector Association="Enza.DataAccess.FK_TraitValue_Trait" />
+        <AssociationConnector Association="Enza.DataAccess.FK_Trial_TrialType" />
+        <AssociationConnector Association="Enza.DataAccess.FK_VarietyGroup_TrialRegion" />
+        <AssociationConnector Association="Enza.DataAccess.FK_VarietyInGroup_VarietyGroup" />
+        <EntityTypeShape EntityType="Enza.DataAccess.ServiceRegistry" Width="1.5" PointX="6.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

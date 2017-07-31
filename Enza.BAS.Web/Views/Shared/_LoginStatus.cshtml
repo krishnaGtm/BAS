@@ -1,0 +1,19 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div classN="col-md-11  col-sm-10 col-xs-10 text-right">
+        <p class="wel">
+            Welcome, @User.Identity.Name
+        </p>
+    </div>
+    <div class="col-md-1  col-sm-2 col-xs-2 text-right">
+        <p class="logout">
+            @using (Html.BeginForm("LogOut", "Account", new { area = string.Empty }))
+            {
+                @*@Html.AntiForgeryToken()*@
+                <input type="image" src="@Url.Content("~/images/i-logout.png")" alt="Logout" width="18" height="18"
+                       data-toggle="tooltip" data-placement="left" title="Sign in as different user">
+            }
+            
+        </p>
+    </div>
+}

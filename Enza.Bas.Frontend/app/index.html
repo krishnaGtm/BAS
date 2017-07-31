@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BAS: Breeding Administration System </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+<!-- Display a message if JS has been disabled on the browser. -->
+<noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>,
+    please <strong>enable JS</strong> to make this app work.
+</noscript>
+<div id="app" class="container"></div>
+
+<script>
+    var userContext = {
+        "UserID": 0,
+        "Name": "KATHMANDU\\dbasukala",
+        "RoleID": 0,
+        "RoleName": null,
+        "EmailAddress": null
+    };
+    var services = /*{
+     "Enza.Services.Batches": "https://10.0.1.236/Batches/",
+     "Enza.Services.Lots": "https://10.0.1.236/Lots/",
+     "Enza.Services.Gateway": "https://10.0.1.236/Gateway/",
+     "Enza.Services.Plants": "https://10.0.1.236/Plants/",
+     "Enza.Services.Trials": "https://10.0.1.236/Trials/",
+     "Enza.Services.TrialEntries": "https://10.0.1.236/Trials/",
+     "Enza.Services.Masters": "https://10.0.1.236/Masters/",
+     "Enza.Services.Observations": "https://10.0.1.236/Observations/",
+     "Enza.Services.Entities": "https://10.0.1.236/Entities/",
+     "Enza.Services.Generals": "https://10.0.1.236/Generals/",
+     "Enza.Services.Crossings": "https://10.0.1.236/Crossings/",
+     "UEL": "https://bpmtst.enzazaden.com/cordys/com.eibus.web.soap.Gateway.wcp"
+     };*/
+
+
+        {
+            "Enza.Services.Batches":         "https://10.0.1.236/Batches/",
+            "Enza.Services.Lots":            "https://10.0.1.236/Lots/",
+            "Enza.Services.Gateway":         "https://10.0.1.236/Gateway/",
+            "Enza.Services.Plants":          "https://10.0.1.236/Plants/",
+            "Enza.Services.Trials":          "https://10.0.1.236/Trials/",
+            "Enza.Services.TrialEntries":    "https://10.0.1.236/Trials/",
+            "Enza.Services.Masters":         "https://10.0.1.236/Masters/",
+            "Enza.Services.Observations":    "https://10.0.1.236/Observations/",
+            "Enza.Services.Entities":        "https://10.0.1.236/Entities/",
+            "Enza.Services.Generals":        "https://10.0.1.236/Generals/",
+            "Enza.Services.Crossings":       "https://10.0.1.236/Crossings/",
+            "Enza.Services.Groups":          "https://10.0.1.236/Groups/",
+            "Enza.TrialApp.UserService":     "https://10.0.1.236/UserService/",
+            "Enza.TrialApp.PlanningService": "https://10.0.1.236/PlanningService/",
+            "UEL": "https://bpmtst.enzazaden.com/cordys/com.eibus.web.soap.Gateway.wcp"
+        }
+</script>
+
+</body>
+</html>

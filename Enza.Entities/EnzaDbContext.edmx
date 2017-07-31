@@ -1,0 +1,2831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Enza.DataAccess.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="BatchNr" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="CountryCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="CountryCode3" Type="nchar" MaxLength="3" />
+          <Property Name="CountryCodeInt" Type="int" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CropGroup">
+          <Key>
+            <PropertyRef Name="CropGroupID" />
+          </Key>
+          <Property Name="CropGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CropRD">
+          <Key>
+            <PropertyRef Name="CropCode" />
+          </Key>
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="CropName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_Bvarieties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_Bvarieties">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="bvarn_varnum" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="bvarn_varnum" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_FieldBooks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_FieldBooks">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="vcroc_cropcod" />
+            <PropertyRef Name="bresc_resgrcod" />
+            <PropertyRef Name="bproc_projectcod" />
+            <PropertyRef Name="bfldc_fieldbookcod" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="vcroc_cropcod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bresc_resgrcod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bproc_projectcod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bfldc_fieldbookcod" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_Fields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_Fields">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="bfiln_fieldnum" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_Lots' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_Lots">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="blotn_lotnum" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_Plants' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_Plants">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="bplan_plantnum" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAS_DEV.dbo.Eazy_Vvarieties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Eazy_Vvarieties">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="vvarn_varnum" />
+          </Key>
+          <Property Name="EZID" Type="int" />
+          <Property Name="gsysc_syncode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="vvarn_varnum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityTypeCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntityType">
+          <Key>
+            <PropertyRef Name="EntityTypeCode" />
+          </Key>
+          <Property Name="EntityTypeCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="EntityTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FieldSet">
+          <Key>
+            <PropertyRef Name="FieldSetID" />
+          </Key>
+          <Property Name="FieldSetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldSetCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldSetName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Lot">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="LotNr" Type="int" Nullable="false" />
+          <Property Name="MasterNr" Type="nvarchar" MaxLength="50" />
+          <Property Name="PONr" Type="nvarchar" MaxLength="50" />
+          <Property Name="GenerationCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Stem" Type="nvarchar" MaxLength="10" />
+          <Property Name="StemTail" Type="nvarchar" MaxLength="255" />
+          <Property Name="StembookDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ResistanceExpected" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ObsChar">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="bigint" Nullable="false" />
+          <Property Name="ObsValue" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ObsDate">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="bigint" Nullable="false" />
+          <Property Name="ObsValue" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ObsDec">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="bigint" Nullable="false" />
+          <Property Name="ObsValue" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Observation">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="TraitID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="UserIDCreated" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="UserIDUpdated" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ObsInt">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="bigint" Nullable="false" />
+          <Property Name="ObsValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicalLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentLocationID" Type="int" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="2" />
+          <Property Name="LocationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plant(part)">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="PlantNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="bigint" Nullable="false" />
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="DateFrom" Type="datetime" Nullable="false" />
+          <Property Name="DateUntil" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PropertyOfEntity">
+          <Key>
+            <PropertyRef Name="PropertyID" />
+          </Key>
+          <Property Name="PropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityTypeCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+          <Property Name="TraitID" Type="int" Nullable="false" />
+          <Property Name="SortingOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="EZID1" />
+            <PropertyRef Name="EZID2" />
+          </Key>
+          <Property Name="EZID1" Type="int" Nullable="false" />
+          <Property Name="EntityTypeCode1" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="EZID2" Type="int" Nullable="false" />
+          <Property Name="EntityTypeCode2" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceRegistry">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Scheme" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Host" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Port" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Trait">
+          <Key>
+            <PropertyRef Name="TraitID" />
+          </Key>
+          <Property Name="TraitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" />
+          <Property Name="ScreeningFieldNr" Type="int" />
+          <Property Name="TraitTypeID" Type="int" Nullable="false" />
+          <Property Name="TraitName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ColumnLabel" Type="nvarchar" MaxLength="10" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ColumnWidth" Type="int" />
+          <Property Name="DisplayFormat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Editor" Type="bit" Nullable="false" />
+          <Property Name="ListOfValues" Type="bit" Nullable="false" />
+          <Property Name="MinValue" Type="int" />
+          <Property Name="MaxValue" Type="int" />
+          <Property Name="Property" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TraitInFieldSet">
+          <Key>
+            <PropertyRef Name="FieldSetID" />
+            <PropertyRef Name="TraitID" />
+          </Key>
+          <Property Name="FieldSetID" Type="int" Nullable="false" />
+          <Property Name="TraitID" Type="int" Nullable="false" />
+          <Property Name="SortingOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="TraitType">
+          <Key>
+            <PropertyRef Name="TraitTypeID" />
+          </Key>
+          <Property Name="TraitTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TraitTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TraitValue">
+          <Key>
+            <PropertyRef Name="TraitValueID" />
+          </Key>
+          <Property Name="TraitValueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TraitID" Type="int" Nullable="false" />
+          <Property Name="TraitValueCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TraitValueName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortingOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="Trial">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="TrialName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrialTypeID" Type="int" Nullable="false" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="TrialEntry">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="FieldNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TrialRegion">
+          <Key>
+            <PropertyRef Name="TrialRegionID" />
+          </Key>
+          <Property Name="TrialRegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrialRegionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrialType">
+          <Key>
+            <PropertyRef Name="TrialTypeID" />
+          </Key>
+          <Property Name="TrialTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrialTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CropGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Variety">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="VarietyNr" Type="int" />
+          <Property Name="CropCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="VarietyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Enumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CropSegmentCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductSegmentCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ResistanceHR" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResistanceIR" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResistanceT" Type="nvarchar" MaxLength="50" />
+          <Property Name="MasterNr" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="VarietyGroup">
+          <Key>
+            <PropertyRef Name="VarietyGroupID" />
+          </Key>
+          <Property Name="VarietyGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VarietyGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrialRegionID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VarietyInGroup">
+          <Key>
+            <PropertyRef Name="VarietyGroupID" />
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="VarietyGroupID" Type="int" Nullable="false" />
+          <Property Name="EZID" Type="int" Nullable="false" />
+          <Property Name="SortingOrder" Type="int" />
+        </EntityType>
+        <Association Name="FK_Batch_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Batch_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CropRD_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="CropRD">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entity_EntityType">
+          <End Role="EntityType" Type="Self.EntityType" Multiplicity="1" />
+          <End Role="Entity" Type="Self.Entity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Entity">
+              <PropertyRef Name="EntityTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldSet_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="FieldSet" Type="Self.FieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="FieldSet">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldSet_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="0..1" />
+          <End Role="FieldSet" Type="Self.FieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="FieldSet">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lot_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="Lot" Type="Self.Lot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Lot">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lot_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Lot" Type="Self.Lot" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Lot">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsChar_Observation">
+          <End Role="Observation" Type="Self.Observation" Multiplicity="1" />
+          <End Role="ObsChar" Type="Self.ObsChar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsChar">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsDate_Observation">
+          <End Role="Observation" Type="Self.Observation" Multiplicity="1" />
+          <End Role="ObsDate" Type="Self.ObsDate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsDate">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsDec_Observation">
+          <End Role="Observation" Type="Self.Observation" Multiplicity="1" />
+          <End Role="ObsDec" Type="Self.ObsDec" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsDec">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Observation_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Observation" Type="Self.Observation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Observation">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Observation_Trait">
+          <End Role="Trait" Type="Self.Trait" Multiplicity="1" />
+          <End Role="Observation" Type="Self.Observation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="Observation">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsInt_Observation">
+          <End Role="Observation" Type="Self.Observation" Multiplicity="1" />
+          <End Role="ObsInt" Type="Self.ObsInt" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsInt">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalLocation_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="PhysicalLocation" Type="Self.PhysicalLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCode" />
+            </Principal>
+            <Dependent Role="PhysicalLocation">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalLocation_PhysicalLocation">
+          <End Role="PhysicalLocation" Type="Self.PhysicalLocation" Multiplicity="0..1" />
+          <End Role="PhysicalLocation1" Type="Self.PhysicalLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicalLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PhysicalLocation1">
+              <PropertyRef Name="ParentLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant(part)_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="Plant(part)" Type="Self.Plant(part)" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Plant(part)">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant(part)_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Plant(part)" Type="Self.Plant(part)" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Plant(part)">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_PhysicalLocation">
+          <End Role="PhysicalLocation" Type="Self.PhysicalLocation" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicalLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="PropertyOfEntity" Type="Self.PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_EntityType">
+          <End Role="EntityType" Type="Self.EntityType" Multiplicity="1" />
+          <End Role="PropertyOfEntity" Type="Self.PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="EntityTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_Trait">
+          <End Role="Trait" Type="Self.Trait" Multiplicity="1" />
+          <End Role="PropertyOfEntity" Type="Self.PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_Entity1">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EZID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_Entity2">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EZID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_EntityType1">
+          <End Role="EntityType" Type="Self.EntityType" Multiplicity="1" />
+          <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EntityTypeCode1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_EntityType2">
+          <End Role="EntityType" Type="Self.EntityType" Multiplicity="1" />
+          <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EntityTypeCode2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="Trait" Type="Self.Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="0..1" />
+          <End Role="Trait" Type="Self.Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_TraitType">
+          <End Role="TraitType" Type="Self.TraitType" Multiplicity="1" />
+          <End Role="Trait" Type="Self.Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TraitType">
+              <PropertyRef Name="TraitTypeID" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="TraitTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitInFieldSet_FieldSet">
+          <End Role="FieldSet" Type="Self.FieldSet" Multiplicity="1" />
+          <End Role="TraitInFieldSet" Type="Self.TraitInFieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldSet">
+              <PropertyRef Name="FieldSetID" />
+            </Principal>
+            <Dependent Role="TraitInFieldSet">
+              <PropertyRef Name="FieldSetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitInFieldSet_Trait">
+          <End Role="Trait" Type="Self.Trait" Multiplicity="1" />
+          <End Role="TraitInFieldSet" Type="Self.TraitInFieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="TraitInFieldSet">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitType_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="TraitType" Type="Self.TraitType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TraitType">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitValue_Trait">
+          <End Role="Trait" Type="Self.Trait" Multiplicity="1" />
+          <End Role="TraitValue" Type="Self.TraitValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="TraitValue">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Trial" Type="Self.Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCode" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="Trial" Type="Self.Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Trial" Type="Self.Trial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_TrialType">
+          <End Role="TrialType" Type="Self.TrialType" Multiplicity="1" />
+          <End Role="Trial" Type="Self.Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrialType">
+              <PropertyRef Name="TrialTypeID" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="TrialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialLine_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="TrialEntry" Type="Self.TrialEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="TrialEntry">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialLine_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="TrialEntry" Type="Self.TrialEntry" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="TrialEntry">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialRegion_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="TrialRegion" Type="Self.TrialRegion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TrialRegion">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialType_CropGroup">
+          <End Role="CropGroup" Type="Self.CropGroup" Multiplicity="1" />
+          <End Role="TrialType" Type="Self.TrialType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TrialType">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Variety_CropRD">
+          <End Role="CropRD" Type="Self.CropRD" Multiplicity="1" />
+          <End Role="Variety" Type="Self.Variety" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Variety">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Variety_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="Variety" Type="Self.Variety" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Variety">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyGroup_TrialRegion">
+          <End Role="TrialRegion" Type="Self.TrialRegion" Multiplicity="1" />
+          <End Role="VarietyGroup" Type="Self.VarietyGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrialRegion">
+              <PropertyRef Name="TrialRegionID" />
+            </Principal>
+            <Dependent Role="VarietyGroup">
+              <PropertyRef Name="TrialRegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyInGroup_Entity">
+          <End Role="Entity" Type="Self.Entity" Multiplicity="1" />
+          <End Role="VarietyInGroup" Type="Self.VarietyInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="VarietyInGroup">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyInGroup_VarietyGroup">
+          <End Role="VarietyGroup" Type="Self.VarietyGroup" Multiplicity="1" />
+          <End Role="VarietyInGroup" Type="Self.VarietyInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VarietyGroup">
+              <PropertyRef Name="VarietyGroupID" />
+            </Principal>
+            <Dependent Role="VarietyInGroup">
+              <PropertyRef Name="VarietyGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EnzaDataAccessStoreContainer">
+          <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropGroup" EntityType="Self.CropGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropRD" EntityType="Self.CropRD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntityType" EntityType="Self.EntityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FieldSet" EntityType="Self.FieldSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lot" EntityType="Self.Lot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObsChar" EntityType="Self.ObsChar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObsDate" EntityType="Self.ObsDate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObsDec" EntityType="Self.ObsDec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Observation" EntityType="Self.Observation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObsInt" EntityType="Self.ObsInt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicalLocation" EntityType="Self.PhysicalLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plant(part)" EntityType="Self.Plant(part)" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyOfEntity" EntityType="Self.PropertyOfEntity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceRegistry" EntityType="Self.ServiceRegistry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trait" EntityType="Self.Trait" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TraitInFieldSet" EntityType="Self.TraitInFieldSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TraitType" EntityType="Self.TraitType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TraitValue" EntityType="Self.TraitValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trial" EntityType="Self.Trial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrialEntry" EntityType="Self.TrialEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrialRegion" EntityType="Self.TrialRegion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrialType" EntityType="Self.TrialType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Variety" EntityType="Self.Variety" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VarietyGroup" EntityType="Self.VarietyGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VarietyInGroup" EntityType="Self.VarietyInGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eazy_Bvarieties" EntityType="Self.Eazy_Bvarieties" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_Bvarieties].[EZID] AS [EZID], 
+    [Eazy_Bvarieties].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_Bvarieties].[bvarn_varnum] AS [bvarn_varnum]
+    FROM [dbo].[Eazy_Bvarieties] AS [Eazy_Bvarieties]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Eazy_FieldBooks" EntityType="Self.Eazy_FieldBooks" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_FieldBooks].[EZID] AS [EZID], 
+    [Eazy_FieldBooks].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_FieldBooks].[vcroc_cropcod] AS [vcroc_cropcod], 
+    [Eazy_FieldBooks].[bresc_resgrcod] AS [bresc_resgrcod], 
+    [Eazy_FieldBooks].[bproc_projectcod] AS [bproc_projectcod], 
+    [Eazy_FieldBooks].[bfldc_fieldbookcod] AS [bfldc_fieldbookcod]
+    FROM [dbo].[Eazy_FieldBooks] AS [Eazy_FieldBooks]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Eazy_Fields" EntityType="Self.Eazy_Fields" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_Fields].[EZID] AS [EZID], 
+    [Eazy_Fields].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_Fields].[bfiln_fieldnum] AS [bfiln_fieldnum]
+    FROM [dbo].[Eazy_Fields] AS [Eazy_Fields]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Eazy_Lots" EntityType="Self.Eazy_Lots" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_Lots].[EZID] AS [EZID], 
+    [Eazy_Lots].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_Lots].[blotn_lotnum] AS [blotn_lotnum]
+    FROM [dbo].[Eazy_Lots] AS [Eazy_Lots]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Eazy_Plants" EntityType="Self.Eazy_Plants" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_Plants].[EZID] AS [EZID], 
+    [Eazy_Plants].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_Plants].[bplan_plantnum] AS [bplan_plantnum]
+    FROM [dbo].[Eazy_Plants] AS [Eazy_Plants]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Eazy_Vvarieties" EntityType="Self.Eazy_Vvarieties" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Eazy_Vvarieties].[EZID] AS [EZID], 
+    [Eazy_Vvarieties].[gsysc_syncode] AS [gsysc_syncode], 
+    [Eazy_Vvarieties].[vvarn_varnum] AS [vvarn_varnum]
+    FROM [dbo].[Eazy_Vvarieties] AS [Eazy_Vvarieties]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Batch_CropRD" Association="Self.FK_Batch_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Batch_Entity" Association="Self.FK_Batch_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CropRD_CropGroup" Association="Self.FK_CropRD_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="CropRD" EntitySet="CropRD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entity_EntityType" Association="Self.FK_Entity_EntityType">
+            <End Role="EntityType" EntitySet="EntityType" />
+            <End Role="Entity" EntitySet="Entity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldSet_CropGroup" Association="Self.FK_FieldSet_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="FieldSet" EntitySet="FieldSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldSet_CropRD" Association="Self.FK_FieldSet_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="FieldSet" EntitySet="FieldSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lot_CropRD" Association="Self.FK_Lot_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Lot" EntitySet="Lot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lot_Entity" Association="Self.FK_Lot_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Lot" EntitySet="Lot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsChar_Observation" Association="Self.FK_ObsChar_Observation">
+            <End Role="Observation" EntitySet="Observation" />
+            <End Role="ObsChar" EntitySet="ObsChar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsDate_Observation" Association="Self.FK_ObsDate_Observation">
+            <End Role="Observation" EntitySet="Observation" />
+            <End Role="ObsDate" EntitySet="ObsDate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsDec_Observation" Association="Self.FK_ObsDec_Observation">
+            <End Role="Observation" EntitySet="Observation" />
+            <End Role="ObsDec" EntitySet="ObsDec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Observation_Entity" Association="Self.FK_Observation_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Observation" EntitySet="Observation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Observation_Trait" Association="Self.FK_Observation_Trait">
+            <End Role="Trait" EntitySet="Trait" />
+            <End Role="Observation" EntitySet="Observation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsInt_Observation" Association="Self.FK_ObsInt_Observation">
+            <End Role="Observation" EntitySet="Observation" />
+            <End Role="ObsInt" EntitySet="ObsInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalLocation_Country" Association="Self.FK_PhysicalLocation_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalLocation_PhysicalLocation" Association="Self.FK_PhysicalLocation_PhysicalLocation">
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocation" />
+            <End Role="PhysicalLocation1" EntitySet="PhysicalLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant(part)_CropRD" Association="Self.FK_Plant(part)_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Plant(part)" EntitySet="Plant(part)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant(part)_Entity" Association="Self.FK_Plant(part)_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Plant(part)" EntitySet="Plant(part)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_Entity" Association="Self.FK_Position_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Position" EntitySet="Position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_PhysicalLocation" Association="Self.FK_Position_PhysicalLocation">
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocation" />
+            <End Role="Position" EntitySet="Position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_CropGroup" Association="Self.FK_PropertyOfEntity_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_EntityType" Association="Self.FK_PropertyOfEntity_EntityType">
+            <End Role="EntityType" EntitySet="EntityType" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_Trait" Association="Self.FK_PropertyOfEntity_Trait">
+            <End Role="Trait" EntitySet="Trait" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_Entity1" Association="Self.FK_Relationship_Entity1">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Relationship" EntitySet="Relationship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_Entity2" Association="Self.FK_Relationship_Entity2">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Relationship" EntitySet="Relationship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_EntityType1" Association="Self.FK_Relationship_EntityType1">
+            <End Role="EntityType" EntitySet="EntityType" />
+            <End Role="Relationship" EntitySet="Relationship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_EntityType2" Association="Self.FK_Relationship_EntityType2">
+            <End Role="EntityType" EntitySet="EntityType" />
+            <End Role="Relationship" EntitySet="Relationship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_CropGroup" Association="Self.FK_Trait_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="Trait" EntitySet="Trait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_CropRD" Association="Self.FK_Trait_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Trait" EntitySet="Trait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_TraitType" Association="Self.FK_Trait_TraitType">
+            <End Role="TraitType" EntitySet="TraitType" />
+            <End Role="Trait" EntitySet="Trait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitInFieldSet_FieldSet" Association="Self.FK_TraitInFieldSet_FieldSet">
+            <End Role="FieldSet" EntitySet="FieldSet" />
+            <End Role="TraitInFieldSet" EntitySet="TraitInFieldSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitInFieldSet_Trait" Association="Self.FK_TraitInFieldSet_Trait">
+            <End Role="Trait" EntitySet="Trait" />
+            <End Role="TraitInFieldSet" EntitySet="TraitInFieldSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitType_CropGroup" Association="Self.FK_TraitType_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="TraitType" EntitySet="TraitType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitValue_Trait" Association="Self.FK_TraitValue_Trait">
+            <End Role="Trait" EntitySet="Trait" />
+            <End Role="TraitValue" EntitySet="TraitValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_Country" Association="Self.FK_Trial_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Trial" EntitySet="Trial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_CropRD" Association="Self.FK_Trial_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Trial" EntitySet="Trial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_Entity" Association="Self.FK_Trial_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Trial" EntitySet="Trial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_TrialType" Association="Self.FK_Trial_TrialType">
+            <End Role="TrialType" EntitySet="TrialType" />
+            <End Role="Trial" EntitySet="Trial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialLine_CropRD" Association="Self.FK_TrialLine_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="TrialEntry" EntitySet="TrialEntry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialLine_Entity" Association="Self.FK_TrialLine_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="TrialEntry" EntitySet="TrialEntry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialRegion_CropGroup" Association="Self.FK_TrialRegion_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="TrialRegion" EntitySet="TrialRegion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialType_CropGroup" Association="Self.FK_TrialType_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroup" />
+            <End Role="TrialType" EntitySet="TrialType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Variety_CropRD" Association="Self.FK_Variety_CropRD">
+            <End Role="CropRD" EntitySet="CropRD" />
+            <End Role="Variety" EntitySet="Variety" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Variety_Entity" Association="Self.FK_Variety_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Variety" EntitySet="Variety" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyGroup_TrialRegion" Association="Self.FK_VarietyGroup_TrialRegion">
+            <End Role="TrialRegion" EntitySet="TrialRegion" />
+            <End Role="VarietyGroup" EntitySet="VarietyGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyInGroup_Entity" Association="Self.FK_VarietyInGroup_Entity">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="VarietyInGroup" EntitySet="VarietyInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyInGroup_VarietyGroup" Association="Self.FK_VarietyInGroup_VarietyGroup">
+            <End Role="VarietyGroup" EntitySet="VarietyGroup" />
+            <End Role="VarietyInGroup" EntitySet="VarietyInGroup" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Enza.DataAccess" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EnzaDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Batches" EntityType="Enza.DataAccess.Batch" />
+          <EntitySet Name="Countries" EntityType="Enza.DataAccess.Country" />
+          <EntitySet Name="CropGroups" EntityType="Enza.DataAccess.CropGroup" />
+          <EntitySet Name="CropRDs" EntityType="Enza.DataAccess.CropRD" />
+          <EntitySet Name="Entities" EntityType="Enza.DataAccess.Entity" />
+          <EntitySet Name="EntityTypes" EntityType="Enza.DataAccess.EntityType" />
+          <EntitySet Name="FieldSets" EntityType="Enza.DataAccess.FieldSet" />
+          <EntitySet Name="Lots" EntityType="Enza.DataAccess.Lot" />
+          <EntitySet Name="ObsChars" EntityType="Enza.DataAccess.ObsChar" />
+          <EntitySet Name="ObsDates" EntityType="Enza.DataAccess.ObsDate" />
+          <EntitySet Name="ObsDecs" EntityType="Enza.DataAccess.ObsDec" />
+          <EntitySet Name="Observations" EntityType="Enza.DataAccess.Observation" />
+          <EntitySet Name="ObsInts" EntityType="Enza.DataAccess.ObsInt" />
+          <EntitySet Name="PhysicalLocations" EntityType="Enza.DataAccess.PhysicalLocation" />
+          <EntitySet Name="Plant_part_" EntityType="Enza.DataAccess.Plant_part_" />
+          <EntitySet Name="Positions" EntityType="Enza.DataAccess.Position" />
+          <EntitySet Name="PropertyOfEntities" EntityType="Enza.DataAccess.PropertyOfEntity" />
+          <EntitySet Name="Relationships" EntityType="Enza.DataAccess.Relationship" />
+          <EntitySet Name="Traits" EntityType="Enza.DataAccess.Trait" />
+          <EntitySet Name="TraitInFieldSets" EntityType="Enza.DataAccess.TraitInFieldSet" />
+          <EntitySet Name="TraitTypes" EntityType="Enza.DataAccess.TraitType" />
+          <EntitySet Name="TraitValues" EntityType="Enza.DataAccess.TraitValue" />
+          <EntitySet Name="Trials" EntityType="Enza.DataAccess.Trial" />
+          <EntitySet Name="TrialEntries" EntityType="Enza.DataAccess.TrialEntry" />
+          <EntitySet Name="TrialRegions" EntityType="Enza.DataAccess.TrialRegion" />
+          <EntitySet Name="TrialTypes" EntityType="Enza.DataAccess.TrialType" />
+          <EntitySet Name="Varieties" EntityType="Enza.DataAccess.Variety" />
+          <EntitySet Name="VarietyGroups" EntityType="Enza.DataAccess.VarietyGroup" />
+          <EntitySet Name="VarietyInGroups" EntityType="Enza.DataAccess.VarietyInGroup" />
+          <EntitySet Name="Eazy_Bvarieties" EntityType="Enza.DataAccess.Eazy_Bvarieties" />
+          <EntitySet Name="Eazy_FieldBooks" EntityType="Enza.DataAccess.Eazy_FieldBooks" />
+          <EntitySet Name="Eazy_Fields" EntityType="Enza.DataAccess.Eazy_Fields" />
+          <EntitySet Name="Eazy_Lots" EntityType="Enza.DataAccess.Eazy_Lots" />
+          <EntitySet Name="Eazy_Plants" EntityType="Enza.DataAccess.Eazy_Plants" />
+          <EntitySet Name="Eazy_Vvarieties" EntityType="Enza.DataAccess.Eazy_Vvarieties" />
+          <AssociationSet Name="FK_Batch_CropRD" Association="Enza.DataAccess.FK_Batch_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Batch_Entity" Association="Enza.DataAccess.FK_Batch_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalLocation_Country" Association="Enza.DataAccess.FK_PhysicalLocation_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_Country" Association="Enza.DataAccess.FK_Trial_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Trial" EntitySet="Trials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CropRD_CropGroup" Association="Enza.DataAccess.FK_CropRD_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="CropRD" EntitySet="CropRDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldSet_CropGroup" Association="Enza.DataAccess.FK_FieldSet_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="FieldSet" EntitySet="FieldSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_CropGroup" Association="Enza.DataAccess.FK_PropertyOfEntity_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_CropGroup" Association="Enza.DataAccess.FK_Trait_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="Trait" EntitySet="Traits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitType_CropGroup" Association="Enza.DataAccess.FK_TraitType_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="TraitType" EntitySet="TraitTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialRegion_CropGroup" Association="Enza.DataAccess.FK_TrialRegion_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="TrialRegion" EntitySet="TrialRegions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialType_CropGroup" Association="Enza.DataAccess.FK_TrialType_CropGroup">
+            <End Role="CropGroup" EntitySet="CropGroups" />
+            <End Role="TrialType" EntitySet="TrialTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldSet_CropRD" Association="Enza.DataAccess.FK_FieldSet_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="FieldSet" EntitySet="FieldSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lot_CropRD" Association="Enza.DataAccess.FK_Lot_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Lot" EntitySet="Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_part__CropRD" Association="Enza.DataAccess.FK_Plant_part__CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Plant_part_" EntitySet="Plant_part_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_CropRD" Association="Enza.DataAccess.FK_Trait_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Trait" EntitySet="Traits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_CropRD" Association="Enza.DataAccess.FK_Trial_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Trial" EntitySet="Trials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialLine_CropRD" Association="Enza.DataAccess.FK_TrialLine_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="TrialEntry" EntitySet="TrialEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Variety_CropRD" Association="Enza.DataAccess.FK_Variety_CropRD">
+            <End Role="CropRD" EntitySet="CropRDs" />
+            <End Role="Variety" EntitySet="Varieties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entity_EntityType" Association="Enza.DataAccess.FK_Entity_EntityType">
+            <End Role="EntityType" EntitySet="EntityTypes" />
+            <End Role="Entity" EntitySet="Entities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lot_Entity" Association="Enza.DataAccess.FK_Lot_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Lot" EntitySet="Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Observation_Entity" Association="Enza.DataAccess.FK_Observation_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Observation" EntitySet="Observations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plant_part__Entity" Association="Enza.DataAccess.FK_Plant_part__Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Plant_part_" EntitySet="Plant_part_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_Entity" Association="Enza.DataAccess.FK_Position_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_Entity1" Association="Enza.DataAccess.FK_Relationship_Entity1">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_Entity2" Association="Enza.DataAccess.FK_Relationship_Entity2">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_Entity" Association="Enza.DataAccess.FK_Trial_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Trial" EntitySet="Trials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialLine_Entity" Association="Enza.DataAccess.FK_TrialLine_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="TrialEntry" EntitySet="TrialEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Variety_Entity" Association="Enza.DataAccess.FK_Variety_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="Variety" EntitySet="Varieties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyInGroup_Entity" Association="Enza.DataAccess.FK_VarietyInGroup_Entity">
+            <End Role="Entity" EntitySet="Entities" />
+            <End Role="VarietyInGroup" EntitySet="VarietyInGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_EntityType" Association="Enza.DataAccess.FK_PropertyOfEntity_EntityType">
+            <End Role="EntityType" EntitySet="EntityTypes" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_EntityType1" Association="Enza.DataAccess.FK_Relationship_EntityType1">
+            <End Role="EntityType" EntitySet="EntityTypes" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationship_EntityType2" Association="Enza.DataAccess.FK_Relationship_EntityType2">
+            <End Role="EntityType" EntitySet="EntityTypes" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitInFieldSet_FieldSet" Association="Enza.DataAccess.FK_TraitInFieldSet_FieldSet">
+            <End Role="FieldSet" EntitySet="FieldSets" />
+            <End Role="TraitInFieldSet" EntitySet="TraitInFieldSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsChar_Observation" Association="Enza.DataAccess.FK_ObsChar_Observation">
+            <End Role="Observation" EntitySet="Observations" />
+            <End Role="ObsChar" EntitySet="ObsChars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsDate_Observation" Association="Enza.DataAccess.FK_ObsDate_Observation">
+            <End Role="Observation" EntitySet="Observations" />
+            <End Role="ObsDate" EntitySet="ObsDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsDec_Observation" Association="Enza.DataAccess.FK_ObsDec_Observation">
+            <End Role="Observation" EntitySet="Observations" />
+            <End Role="ObsDec" EntitySet="ObsDecs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Observation_Trait" Association="Enza.DataAccess.FK_Observation_Trait">
+            <End Role="Trait" EntitySet="Traits" />
+            <End Role="Observation" EntitySet="Observations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ObsInt_Observation" Association="Enza.DataAccess.FK_ObsInt_Observation">
+            <End Role="Observation" EntitySet="Observations" />
+            <End Role="ObsInt" EntitySet="ObsInts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalLocation_PhysicalLocation" Association="Enza.DataAccess.FK_PhysicalLocation_PhysicalLocation">
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocations" />
+            <End Role="PhysicalLocation1" EntitySet="PhysicalLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_PhysicalLocation" Association="Enza.DataAccess.FK_Position_PhysicalLocation">
+            <End Role="PhysicalLocation" EntitySet="PhysicalLocations" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyOfEntity_Trait" Association="Enza.DataAccess.FK_PropertyOfEntity_Trait">
+            <End Role="Trait" EntitySet="Traits" />
+            <End Role="PropertyOfEntity" EntitySet="PropertyOfEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trait_TraitType" Association="Enza.DataAccess.FK_Trait_TraitType">
+            <End Role="TraitType" EntitySet="TraitTypes" />
+            <End Role="Trait" EntitySet="Traits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitInFieldSet_Trait" Association="Enza.DataAccess.FK_TraitInFieldSet_Trait">
+            <End Role="Trait" EntitySet="Traits" />
+            <End Role="TraitInFieldSet" EntitySet="TraitInFieldSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitValue_Trait" Association="Enza.DataAccess.FK_TraitValue_Trait">
+            <End Role="Trait" EntitySet="Traits" />
+            <End Role="TraitValue" EntitySet="TraitValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trial_TrialType" Association="Enza.DataAccess.FK_Trial_TrialType">
+            <End Role="TrialType" EntitySet="TrialTypes" />
+            <End Role="Trial" EntitySet="Trials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyGroup_TrialRegion" Association="Enza.DataAccess.FK_VarietyGroup_TrialRegion">
+            <End Role="TrialRegion" EntitySet="TrialRegions" />
+            <End Role="VarietyGroup" EntitySet="VarietyGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VarietyInGroup_VarietyGroup" Association="Enza.DataAccess.FK_VarietyInGroup_VarietyGroup">
+            <End Role="VarietyGroup" EntitySet="VarietyGroups" />
+            <End Role="VarietyInGroup" EntitySet="VarietyInGroups" />
+          </AssociationSet>
+          <EntitySet Name="ServiceRegistries" EntityType="Enza.DataAccess.ServiceRegistry" />
+        </EntityContainer>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="BatchNr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Batch_CropRD" FromRole="Batch" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Batch_Entity" FromRole="Batch" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="CountryCodeInt" Type="Int32" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhysicalLocations" Relationship="Enza.DataAccess.FK_PhysicalLocation_Country" FromRole="Country" ToRole="PhysicalLocation" />
+          <NavigationProperty Name="Trials" Relationship="Enza.DataAccess.FK_Trial_Country" FromRole="Country" ToRole="Trial" />
+        </EntityType>
+        <EntityType Name="CropGroup">
+          <Key>
+            <PropertyRef Name="CropGroupID" />
+          </Key>
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRDs" Relationship="Enza.DataAccess.FK_CropRD_CropGroup" FromRole="CropGroup" ToRole="CropRD" />
+          <NavigationProperty Name="FieldSets" Relationship="Enza.DataAccess.FK_FieldSet_CropGroup" FromRole="CropGroup" ToRole="FieldSet" />
+          <NavigationProperty Name="PropertyOfEntities" Relationship="Enza.DataAccess.FK_PropertyOfEntity_CropGroup" FromRole="CropGroup" ToRole="PropertyOfEntity" />
+          <NavigationProperty Name="Traits" Relationship="Enza.DataAccess.FK_Trait_CropGroup" FromRole="CropGroup" ToRole="Trait" />
+          <NavigationProperty Name="TraitTypes" Relationship="Enza.DataAccess.FK_TraitType_CropGroup" FromRole="CropGroup" ToRole="TraitType" />
+          <NavigationProperty Name="TrialRegions" Relationship="Enza.DataAccess.FK_TrialRegion_CropGroup" FromRole="CropGroup" ToRole="TrialRegion" />
+          <NavigationProperty Name="TrialTypes" Relationship="Enza.DataAccess.FK_TrialType_CropGroup" FromRole="CropGroup" ToRole="TrialType" />
+        </EntityType>
+        <EntityType Name="CropRD">
+          <Key>
+            <PropertyRef Name="CropCode" />
+          </Key>
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CropName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Batches" Relationship="Enza.DataAccess.FK_Batch_CropRD" FromRole="CropRD" ToRole="Batch" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_CropRD_CropGroup" FromRole="CropRD" ToRole="CropGroup" />
+          <NavigationProperty Name="FieldSets" Relationship="Enza.DataAccess.FK_FieldSet_CropRD" FromRole="CropRD" ToRole="FieldSet" />
+          <NavigationProperty Name="Lots" Relationship="Enza.DataAccess.FK_Lot_CropRD" FromRole="CropRD" ToRole="Lot" />
+          <NavigationProperty Name="Plant_part_" Relationship="Enza.DataAccess.FK_Plant_part__CropRD" FromRole="CropRD" ToRole="Plant_part_" />
+          <NavigationProperty Name="Traits" Relationship="Enza.DataAccess.FK_Trait_CropRD" FromRole="CropRD" ToRole="Trait" />
+          <NavigationProperty Name="Trials" Relationship="Enza.DataAccess.FK_Trial_CropRD" FromRole="CropRD" ToRole="Trial" />
+          <NavigationProperty Name="TrialEntries" Relationship="Enza.DataAccess.FK_TrialLine_CropRD" FromRole="CropRD" ToRole="TrialEntry" />
+          <NavigationProperty Name="Varieties" Relationship="Enza.DataAccess.FK_Variety_CropRD" FromRole="CropRD" ToRole="Variety" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityTypeCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Batch" Relationship="Enza.DataAccess.FK_Batch_Entity" FromRole="Entity" ToRole="Batch" />
+          <NavigationProperty Name="EntityType" Relationship="Enza.DataAccess.FK_Entity_EntityType" FromRole="Entity" ToRole="EntityType" />
+          <NavigationProperty Name="Lot" Relationship="Enza.DataAccess.FK_Lot_Entity" FromRole="Entity" ToRole="Lot" />
+          <NavigationProperty Name="Observations" Relationship="Enza.DataAccess.FK_Observation_Entity" FromRole="Entity" ToRole="Observation" />
+          <NavigationProperty Name="Plant_part_" Relationship="Enza.DataAccess.FK_Plant_part__Entity" FromRole="Entity" ToRole="Plant_part_" />
+          <NavigationProperty Name="Positions" Relationship="Enza.DataAccess.FK_Position_Entity" FromRole="Entity" ToRole="Position" />
+          <NavigationProperty Name="Relationships" Relationship="Enza.DataAccess.FK_Relationship_Entity1" FromRole="Entity" ToRole="Relationship" />
+          <NavigationProperty Name="Relationships1" Relationship="Enza.DataAccess.FK_Relationship_Entity2" FromRole="Entity" ToRole="Relationship" />
+          <NavigationProperty Name="Trial" Relationship="Enza.DataAccess.FK_Trial_Entity" FromRole="Entity" ToRole="Trial" />
+          <NavigationProperty Name="TrialEntry" Relationship="Enza.DataAccess.FK_TrialLine_Entity" FromRole="Entity" ToRole="TrialEntry" />
+          <NavigationProperty Name="Variety" Relationship="Enza.DataAccess.FK_Variety_Entity" FromRole="Entity" ToRole="Variety" />
+          <NavigationProperty Name="VarietyInGroups" Relationship="Enza.DataAccess.FK_VarietyInGroup_Entity" FromRole="Entity" ToRole="VarietyInGroup" />
+        </EntityType>
+        <EntityType Name="EntityType">
+          <Key>
+            <PropertyRef Name="EntityTypeCode" />
+          </Key>
+          <Property Name="EntityTypeCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="EntityTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Entities" Relationship="Enza.DataAccess.FK_Entity_EntityType" FromRole="EntityType" ToRole="Entity" />
+          <NavigationProperty Name="PropertyOfEntities" Relationship="Enza.DataAccess.FK_PropertyOfEntity_EntityType" FromRole="EntityType" ToRole="PropertyOfEntity" />
+          <NavigationProperty Name="Relationships" Relationship="Enza.DataAccess.FK_Relationship_EntityType1" FromRole="EntityType" ToRole="Relationship" />
+          <NavigationProperty Name="Relationships1" Relationship="Enza.DataAccess.FK_Relationship_EntityType2" FromRole="EntityType" ToRole="Relationship" />
+        </EntityType>
+        <EntityType Name="FieldSet">
+          <Key>
+            <PropertyRef Name="FieldSetID" />
+          </Key>
+          <Property Name="FieldSetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldSetCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FieldSetName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_FieldSet_CropGroup" FromRole="FieldSet" ToRole="CropGroup" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_FieldSet_CropRD" FromRole="FieldSet" ToRole="CropRD" />
+          <NavigationProperty Name="TraitInFieldSets" Relationship="Enza.DataAccess.FK_TraitInFieldSet_FieldSet" FromRole="FieldSet" ToRole="TraitInFieldSet" />
+        </EntityType>
+        <EntityType Name="Lot">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="LotNr" Type="Int32" Nullable="false" />
+          <Property Name="MasterNr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PONr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenerationCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Stem" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StemTail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StembookDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ResistanceExpected" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Lot_CropRD" FromRole="Lot" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Lot_Entity" FromRole="Lot" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="ObsChar">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="Int64" Nullable="false" />
+          <Property Name="ObsValue" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Observation" Relationship="Enza.DataAccess.FK_ObsChar_Observation" FromRole="ObsChar" ToRole="Observation" />
+        </EntityType>
+        <EntityType Name="ObsDate">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="Int64" Nullable="false" />
+          <Property Name="ObsValue" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Observation" Relationship="Enza.DataAccess.FK_ObsDate_Observation" FromRole="ObsDate" ToRole="Observation" />
+        </EntityType>
+        <EntityType Name="ObsDec">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="Int64" Nullable="false" />
+          <Property Name="ObsValue" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <NavigationProperty Name="Observation" Relationship="Enza.DataAccess.FK_ObsDec_Observation" FromRole="ObsDec" ToRole="Observation" />
+        </EntityType>
+        <EntityType Name="Observation">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="TraitID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserIDCreated" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="UserIDUpdated" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Observation_Entity" FromRole="Observation" ToRole="Entity" />
+          <NavigationProperty Name="ObsChar" Relationship="Enza.DataAccess.FK_ObsChar_Observation" FromRole="Observation" ToRole="ObsChar" />
+          <NavigationProperty Name="ObsDate" Relationship="Enza.DataAccess.FK_ObsDate_Observation" FromRole="Observation" ToRole="ObsDate" />
+          <NavigationProperty Name="ObsDec" Relationship="Enza.DataAccess.FK_ObsDec_Observation" FromRole="Observation" ToRole="ObsDec" />
+          <NavigationProperty Name="Trait" Relationship="Enza.DataAccess.FK_Observation_Trait" FromRole="Observation" ToRole="Trait" />
+          <NavigationProperty Name="ObsInt" Relationship="Enza.DataAccess.FK_ObsInt_Observation" FromRole="Observation" ToRole="ObsInt" />
+        </EntityType>
+        <EntityType Name="ObsInt">
+          <Key>
+            <PropertyRef Name="ObservationID" />
+          </Key>
+          <Property Name="ObservationID" Type="Int64" Nullable="false" />
+          <Property Name="ObsValue" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Observation" Relationship="Enza.DataAccess.FK_ObsInt_Observation" FromRole="ObsInt" ToRole="Observation" />
+        </EntityType>
+        <EntityType Name="PhysicalLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentLocationID" Type="Int32" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="Enza.DataAccess.FK_PhysicalLocation_Country" FromRole="PhysicalLocation" ToRole="Country" />
+          <NavigationProperty Name="PhysicalLocation1" Relationship="Enza.DataAccess.FK_PhysicalLocation_PhysicalLocation" FromRole="PhysicalLocation" ToRole="PhysicalLocation1" />
+          <NavigationProperty Name="PhysicalLocation2" Relationship="Enza.DataAccess.FK_PhysicalLocation_PhysicalLocation" FromRole="PhysicalLocation1" ToRole="PhysicalLocation" />
+          <NavigationProperty Name="Positions" Relationship="Enza.DataAccess.FK_Position_PhysicalLocation" FromRole="PhysicalLocation" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="Plant_part_">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="PlantNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Plant_part__CropRD" FromRole="Plant_part_" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Plant_part__Entity" FromRole="Plant_part_" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="Int64" Nullable="false" />
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUntil" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Position_Entity" FromRole="Position" ToRole="Entity" />
+          <NavigationProperty Name="PhysicalLocation" Relationship="Enza.DataAccess.FK_Position_PhysicalLocation" FromRole="Position" ToRole="PhysicalLocation" />
+        </EntityType>
+        <EntityType Name="PropertyOfEntity">
+          <Key>
+            <PropertyRef Name="PropertyID" />
+          </Key>
+          <Property Name="PropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityTypeCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <Property Name="TraitID" Type="Int32" Nullable="false" />
+          <Property Name="SortingOrder" Type="Int32" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_PropertyOfEntity_CropGroup" FromRole="PropertyOfEntity" ToRole="CropGroup" />
+          <NavigationProperty Name="EntityType" Relationship="Enza.DataAccess.FK_PropertyOfEntity_EntityType" FromRole="PropertyOfEntity" ToRole="EntityType" />
+          <NavigationProperty Name="Trait" Relationship="Enza.DataAccess.FK_PropertyOfEntity_Trait" FromRole="PropertyOfEntity" ToRole="Trait" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="EZID1" />
+            <PropertyRef Name="EZID2" />
+          </Key>
+          <Property Name="EZID1" Type="Int32" Nullable="false" />
+          <Property Name="EntityTypeCode1" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="EZID2" Type="Int32" Nullable="false" />
+          <Property Name="EntityTypeCode2" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Relationship_Entity1" FromRole="Relationship" ToRole="Entity" />
+          <NavigationProperty Name="Entity1" Relationship="Enza.DataAccess.FK_Relationship_Entity2" FromRole="Relationship" ToRole="Entity" />
+          <NavigationProperty Name="EntityType" Relationship="Enza.DataAccess.FK_Relationship_EntityType1" FromRole="Relationship" ToRole="EntityType" />
+          <NavigationProperty Name="EntityType1" Relationship="Enza.DataAccess.FK_Relationship_EntityType2" FromRole="Relationship" ToRole="EntityType" />
+        </EntityType>
+        <EntityType Name="Trait">
+          <Key>
+            <PropertyRef Name="TraitID" />
+          </Key>
+          <Property Name="TraitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="ScreeningFieldNr" Type="Int32" />
+          <Property Name="TraitTypeID" Type="Int32" Nullable="false" />
+          <Property Name="TraitName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnLabel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DataType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnWidth" Type="Int32" />
+          <Property Name="DisplayFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Editor" Type="Boolean" Nullable="false" />
+          <Property Name="ListOfValues" Type="Boolean" Nullable="false" />
+          <Property Name="MinValue" Type="Int32" />
+          <Property Name="MaxValue" Type="Int32" />
+          <Property Name="Property" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_Trait_CropGroup" FromRole="Trait" ToRole="CropGroup" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Trait_CropRD" FromRole="Trait" ToRole="CropRD" />
+          <NavigationProperty Name="Observations" Relationship="Enza.DataAccess.FK_Observation_Trait" FromRole="Trait" ToRole="Observation" />
+          <NavigationProperty Name="PropertyOfEntities" Relationship="Enza.DataAccess.FK_PropertyOfEntity_Trait" FromRole="Trait" ToRole="PropertyOfEntity" />
+          <NavigationProperty Name="TraitType" Relationship="Enza.DataAccess.FK_Trait_TraitType" FromRole="Trait" ToRole="TraitType" />
+          <NavigationProperty Name="TraitInFieldSets" Relationship="Enza.DataAccess.FK_TraitInFieldSet_Trait" FromRole="Trait" ToRole="TraitInFieldSet" />
+          <NavigationProperty Name="TraitValues" Relationship="Enza.DataAccess.FK_TraitValue_Trait" FromRole="Trait" ToRole="TraitValue" />
+        </EntityType>
+        <EntityType Name="TraitInFieldSet">
+          <Key>
+            <PropertyRef Name="FieldSetID" />
+            <PropertyRef Name="TraitID" />
+          </Key>
+          <Property Name="FieldSetID" Type="Int32" Nullable="false" />
+          <Property Name="TraitID" Type="Int32" Nullable="false" />
+          <Property Name="SortingOrder" Type="Int32" />
+          <NavigationProperty Name="FieldSet" Relationship="Enza.DataAccess.FK_TraitInFieldSet_FieldSet" FromRole="TraitInFieldSet" ToRole="FieldSet" />
+          <NavigationProperty Name="Trait" Relationship="Enza.DataAccess.FK_TraitInFieldSet_Trait" FromRole="TraitInFieldSet" ToRole="Trait" />
+        </EntityType>
+        <EntityType Name="TraitType">
+          <Key>
+            <PropertyRef Name="TraitTypeID" />
+          </Key>
+          <Property Name="TraitTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TraitTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_TraitType_CropGroup" FromRole="TraitType" ToRole="CropGroup" />
+          <NavigationProperty Name="Traits" Relationship="Enza.DataAccess.FK_Trait_TraitType" FromRole="TraitType" ToRole="Trait" />
+        </EntityType>
+        <EntityType Name="TraitValue">
+          <Key>
+            <PropertyRef Name="TraitValueID" />
+          </Key>
+          <Property Name="TraitValueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TraitID" Type="Int32" Nullable="false" />
+          <Property Name="TraitValueCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TraitValueName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortingOrder" Type="Int32" />
+          <NavigationProperty Name="Trait" Relationship="Enza.DataAccess.FK_TraitValue_Trait" FromRole="TraitValue" ToRole="Trait" />
+        </EntityType>
+        <EntityType Name="Trial">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="TrialName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrialTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="Enza.DataAccess.FK_Trial_Country" FromRole="Trial" ToRole="Country" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Trial_CropRD" FromRole="Trial" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Trial_Entity" FromRole="Trial" ToRole="Entity" />
+          <NavigationProperty Name="TrialType" Relationship="Enza.DataAccess.FK_Trial_TrialType" FromRole="Trial" ToRole="TrialType" />
+        </EntityType>
+        <EntityType Name="TrialEntry">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="FieldNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_TrialLine_CropRD" FromRole="TrialEntry" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_TrialLine_Entity" FromRole="TrialEntry" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="TrialRegion">
+          <Key>
+            <PropertyRef Name="TrialRegionID" />
+          </Key>
+          <Property Name="TrialRegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrialRegionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_TrialRegion_CropGroup" FromRole="TrialRegion" ToRole="CropGroup" />
+          <NavigationProperty Name="VarietyGroups" Relationship="Enza.DataAccess.FK_VarietyGroup_TrialRegion" FromRole="TrialRegion" ToRole="VarietyGroup" />
+        </EntityType>
+        <EntityType Name="TrialType">
+          <Key>
+            <PropertyRef Name="TrialTypeID" />
+          </Key>
+          <Property Name="TrialTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrialTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CropGroup" Relationship="Enza.DataAccess.FK_TrialType_CropGroup" FromRole="TrialType" ToRole="CropGroup" />
+          <NavigationProperty Name="Trials" Relationship="Enza.DataAccess.FK_Trial_TrialType" FromRole="TrialType" ToRole="Trial" />
+        </EntityType>
+        <EntityType Name="Variety">
+          <Key>
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="VarietyNr" Type="Int32" />
+          <Property Name="CropCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="VarietyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CropSegmentCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductSegmentCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResistanceHR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResistanceIR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResistanceT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MasterNr" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CropRD" Relationship="Enza.DataAccess.FK_Variety_CropRD" FromRole="Variety" ToRole="CropRD" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_Variety_Entity" FromRole="Variety" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="VarietyGroup">
+          <Key>
+            <PropertyRef Name="VarietyGroupID" />
+          </Key>
+          <Property Name="VarietyGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VarietyGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrialRegionID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TrialRegion" Relationship="Enza.DataAccess.FK_VarietyGroup_TrialRegion" FromRole="VarietyGroup" ToRole="TrialRegion" />
+          <NavigationProperty Name="VarietyInGroups" Relationship="Enza.DataAccess.FK_VarietyInGroup_VarietyGroup" FromRole="VarietyGroup" ToRole="VarietyInGroup" />
+        </EntityType>
+        <EntityType Name="VarietyInGroup">
+          <Key>
+            <PropertyRef Name="VarietyGroupID" />
+            <PropertyRef Name="EZID" />
+          </Key>
+          <Property Name="VarietyGroupID" Type="Int32" Nullable="false" />
+          <Property Name="EZID" Type="Int32" Nullable="false" />
+          <Property Name="SortingOrder" Type="Int32" />
+          <NavigationProperty Name="Entity" Relationship="Enza.DataAccess.FK_VarietyInGroup_Entity" FromRole="VarietyInGroup" ToRole="Entity" />
+          <NavigationProperty Name="VarietyGroup" Relationship="Enza.DataAccess.FK_VarietyInGroup_VarietyGroup" FromRole="VarietyInGroup" ToRole="VarietyGroup" />
+        </EntityType>
+        <EntityType Name="Eazy_Bvarieties">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="bvarn_varnum" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="bvarn_varnum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eazy_FieldBooks">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="vcroc_cropcod" />
+            <PropertyRef Name="bresc_resgrcod" />
+            <PropertyRef Name="bproc_projectcod" />
+            <PropertyRef Name="bfldc_fieldbookcod" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="vcroc_cropcod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bresc_resgrcod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bproc_projectcod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bfldc_fieldbookcod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Eazy_Fields">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="bfiln_fieldnum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Eazy_Lots">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="blotn_lotnum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Eazy_Plants">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="bplan_plantnum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Eazy_Vvarieties">
+          <Key>
+            <PropertyRef Name="gsysc_syncode" />
+            <PropertyRef Name="vvarn_varnum" />
+          </Key>
+          <Property Name="EZID" Type="Int32" />
+          <Property Name="gsysc_syncode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="vvarn_varnum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Batch_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Batch" Role="Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Batch_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Batch" Role="Batch" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalLocation_Country">
+          <End Type="Enza.DataAccess.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="Enza.DataAccess.PhysicalLocation" Role="PhysicalLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCode" />
+            </Principal>
+            <Dependent Role="PhysicalLocation">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_Country">
+          <End Type="Enza.DataAccess.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="Enza.DataAccess.Trial" Role="Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCode" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CropRD_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="CropRD">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldSet_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.FieldSet" Role="FieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="FieldSet">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.PropertyOfEntity" Role="PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitType_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TraitType" Role="TraitType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TraitType">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialRegion_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TrialRegion" Role="TrialRegion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TrialRegion">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialType_CropGroup">
+          <End Type="Enza.DataAccess.CropGroup" Role="CropGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TrialType" Role="TrialType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropGroup">
+              <PropertyRef Name="CropGroupID" />
+            </Principal>
+            <Dependent Role="TrialType">
+              <PropertyRef Name="CropGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldSet_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="0..1" />
+          <End Type="Enza.DataAccess.FieldSet" Role="FieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="FieldSet">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lot_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Lot" Role="Lot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Lot">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_part__CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Plant_part_" Role="Plant_part_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Plant_part_">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="0..1" />
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Trial" Role="Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialLine_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TrialEntry" Role="TrialEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="TrialEntry">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Variety_CropRD">
+          <End Type="Enza.DataAccess.CropRD" Role="CropRD" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Variety" Role="Variety" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropRD">
+              <PropertyRef Name="CropCode" />
+            </Principal>
+            <Dependent Role="Variety">
+              <PropertyRef Name="CropCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entity_EntityType">
+          <End Type="Enza.DataAccess.EntityType" Role="EntityType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Entity">
+              <PropertyRef Name="EntityTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lot_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Lot" Role="Lot" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Lot">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Observation_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Observation">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plant_part__Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Plant_part_" Role="Plant_part_" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Plant_part_">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Position" Role="Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_Entity1">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EZID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_Entity2">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EZID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Trial" Role="Trial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrialLine_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TrialEntry" Role="TrialEntry" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="TrialEntry">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Variety_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Variety" Role="Variety" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="Variety">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyInGroup_Entity">
+          <End Type="Enza.DataAccess.Entity" Role="Entity" Multiplicity="1" />
+          <End Type="Enza.DataAccess.VarietyInGroup" Role="VarietyInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entity">
+              <PropertyRef Name="EZID" />
+            </Principal>
+            <Dependent Role="VarietyInGroup">
+              <PropertyRef Name="EZID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_EntityType">
+          <End Type="Enza.DataAccess.EntityType" Role="EntityType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.PropertyOfEntity" Role="PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="EntityTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_EntityType1">
+          <End Type="Enza.DataAccess.EntityType" Role="EntityType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EntityTypeCode1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationship_EntityType2">
+          <End Type="Enza.DataAccess.EntityType" Role="EntityType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityType">
+              <PropertyRef Name="EntityTypeCode" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="EntityTypeCode2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitInFieldSet_FieldSet">
+          <End Type="Enza.DataAccess.FieldSet" Role="FieldSet" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TraitInFieldSet" Role="TraitInFieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldSet">
+              <PropertyRef Name="FieldSetID" />
+            </Principal>
+            <Dependent Role="TraitInFieldSet">
+              <PropertyRef Name="FieldSetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsChar_Observation">
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="1" />
+          <End Type="Enza.DataAccess.ObsChar" Role="ObsChar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsChar">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsDate_Observation">
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="1" />
+          <End Type="Enza.DataAccess.ObsDate" Role="ObsDate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsDate">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsDec_Observation">
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="1" />
+          <End Type="Enza.DataAccess.ObsDec" Role="ObsDec" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsDec">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Observation_Trait">
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="Observation">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ObsInt_Observation">
+          <End Type="Enza.DataAccess.Observation" Role="Observation" Multiplicity="1" />
+          <End Type="Enza.DataAccess.ObsInt" Role="ObsInt" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationID" />
+            </Principal>
+            <Dependent Role="ObsInt">
+              <PropertyRef Name="ObservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalLocation_PhysicalLocation">
+          <End Type="Enza.DataAccess.PhysicalLocation" Role="PhysicalLocation" Multiplicity="0..1" />
+          <End Type="Enza.DataAccess.PhysicalLocation" Role="PhysicalLocation1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicalLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PhysicalLocation1">
+              <PropertyRef Name="ParentLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_PhysicalLocation">
+          <End Type="Enza.DataAccess.PhysicalLocation" Role="PhysicalLocation" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Position" Role="Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicalLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyOfEntity_Trait">
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="1" />
+          <End Type="Enza.DataAccess.PropertyOfEntity" Role="PropertyOfEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="PropertyOfEntity">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trait_TraitType">
+          <End Type="Enza.DataAccess.TraitType" Role="TraitType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TraitType">
+              <PropertyRef Name="TraitTypeID" />
+            </Principal>
+            <Dependent Role="Trait">
+              <PropertyRef Name="TraitTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitInFieldSet_Trait">
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TraitInFieldSet" Role="TraitInFieldSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="TraitInFieldSet">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraitValue_Trait">
+          <End Type="Enza.DataAccess.Trait" Role="Trait" Multiplicity="1" />
+          <End Type="Enza.DataAccess.TraitValue" Role="TraitValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trait">
+              <PropertyRef Name="TraitID" />
+            </Principal>
+            <Dependent Role="TraitValue">
+              <PropertyRef Name="TraitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trial_TrialType">
+          <End Type="Enza.DataAccess.TrialType" Role="TrialType" Multiplicity="1" />
+          <End Type="Enza.DataAccess.Trial" Role="Trial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrialType">
+              <PropertyRef Name="TrialTypeID" />
+            </Principal>
+            <Dependent Role="Trial">
+              <PropertyRef Name="TrialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyGroup_TrialRegion">
+          <End Type="Enza.DataAccess.TrialRegion" Role="TrialRegion" Multiplicity="1" />
+          <End Type="Enza.DataAccess.VarietyGroup" Role="VarietyGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrialRegion">
+              <PropertyRef Name="TrialRegionID" />
+            </Principal>
+            <Dependent Role="VarietyGroup">
+              <PropertyRef Name="TrialRegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VarietyInGroup_VarietyGroup">
+          <End Type="Enza.DataAccess.VarietyGroup" Role="VarietyGroup" Multiplicity="1" />
+          <End Type="Enza.DataAccess.VarietyInGroup" Role="VarietyInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VarietyGroup">
+              <PropertyRef Name="VarietyGroupID" />
+            </Principal>
+            <Dependent Role="VarietyInGroup">
+              <PropertyRef Name="VarietyGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ServiceRegistry">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Scheme" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Host" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Port" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EnzaDataAccessStoreContainer" CdmEntityContainer="EnzaDbContext">
+          <EntitySetMapping Name="Batches">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Batch">
+              <MappingFragment StoreEntitySet="Batch">
+                <ScalarProperty Name="BatchNr" ColumnName="BatchNr" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryCodeInt" ColumnName="CountryCodeInt" />
+                <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropGroups">
+            <EntityTypeMapping TypeName="Enza.DataAccess.CropGroup">
+              <MappingFragment StoreEntitySet="CropGroup">
+                <ScalarProperty Name="CropGroupName" ColumnName="CropGroupName" />
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropRDs">
+            <EntityTypeMapping TypeName="Enza.DataAccess.CropRD">
+              <MappingFragment StoreEntitySet="CropRD">
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="CropName" ColumnName="CropName" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entities">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="EntityTypeCode" ColumnName="EntityTypeCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntityTypes">
+            <EntityTypeMapping TypeName="Enza.DataAccess.EntityType">
+              <MappingFragment StoreEntitySet="EntityType">
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="EntityTypeName" ColumnName="EntityTypeName" />
+                <ScalarProperty Name="EntityTypeCode" ColumnName="EntityTypeCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FieldSets">
+            <EntityTypeMapping TypeName="Enza.DataAccess.FieldSet">
+              <MappingFragment StoreEntitySet="FieldSet">
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="FieldSetName" ColumnName="FieldSetName" />
+                <ScalarProperty Name="FieldSetCode" ColumnName="FieldSetCode" />
+                <ScalarProperty Name="FieldSetID" ColumnName="FieldSetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lots">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Lot">
+              <MappingFragment StoreEntitySet="Lot">
+                <ScalarProperty Name="ResistanceExpected" ColumnName="ResistanceExpected" />
+                <ScalarProperty Name="StembookDescription" ColumnName="StembookDescription" />
+                <ScalarProperty Name="StemTail" ColumnName="StemTail" />
+                <ScalarProperty Name="Stem" ColumnName="Stem" />
+                <ScalarProperty Name="GenerationCode" ColumnName="GenerationCode" />
+                <ScalarProperty Name="PONr" ColumnName="PONr" />
+                <ScalarProperty Name="MasterNr" ColumnName="MasterNr" />
+                <ScalarProperty Name="LotNr" ColumnName="LotNr" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObsChars">
+            <EntityTypeMapping TypeName="Enza.DataAccess.ObsChar">
+              <MappingFragment StoreEntitySet="ObsChar">
+                <ScalarProperty Name="ObsValue" ColumnName="ObsValue" />
+                <ScalarProperty Name="ObservationID" ColumnName="ObservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObsDates">
+            <EntityTypeMapping TypeName="Enza.DataAccess.ObsDate">
+              <MappingFragment StoreEntitySet="ObsDate">
+                <ScalarProperty Name="ObsValue" ColumnName="ObsValue" />
+                <ScalarProperty Name="ObservationID" ColumnName="ObservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObsDecs">
+            <EntityTypeMapping TypeName="Enza.DataAccess.ObsDec">
+              <MappingFragment StoreEntitySet="ObsDec">
+                <ScalarProperty Name="ObsValue" ColumnName="ObsValue" />
+                <ScalarProperty Name="ObservationID" ColumnName="ObservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Observations">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Observation">
+              <MappingFragment StoreEntitySet="Observation">
+                <ScalarProperty Name="UserIDUpdated" ColumnName="UserIDUpdated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="UserIDCreated" ColumnName="UserIDCreated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="TraitID" ColumnName="TraitID" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+                <ScalarProperty Name="ObservationID" ColumnName="ObservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObsInts">
+            <EntityTypeMapping TypeName="Enza.DataAccess.ObsInt">
+              <MappingFragment StoreEntitySet="ObsInt">
+                <ScalarProperty Name="ObsValue" ColumnName="ObsValue" />
+                <ScalarProperty Name="ObservationID" ColumnName="ObservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicalLocations">
+            <EntityTypeMapping TypeName="Enza.DataAccess.PhysicalLocation">
+              <MappingFragment StoreEntitySet="PhysicalLocation">
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="ParentLocationID" ColumnName="ParentLocationID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plant_part_">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Plant_part_">
+              <MappingFragment StoreEntitySet="Plant(part)">
+                <ScalarProperty Name="PlantNumber" ColumnName="PlantNumber" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="DateUntil" ColumnName="DateUntil" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyOfEntities">
+            <EntityTypeMapping TypeName="Enza.DataAccess.PropertyOfEntity">
+              <MappingFragment StoreEntitySet="PropertyOfEntity">
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="TraitID" ColumnName="TraitID" />
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="EntityTypeCode" ColumnName="EntityTypeCode" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relationships">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Relationship">
+              <MappingFragment StoreEntitySet="Relationship">
+                <ScalarProperty Name="EntityTypeCode2" ColumnName="EntityTypeCode2" />
+                <ScalarProperty Name="EZID2" ColumnName="EZID2" />
+                <ScalarProperty Name="EntityTypeCode1" ColumnName="EntityTypeCode1" />
+                <ScalarProperty Name="EZID1" ColumnName="EZID1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traits">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Trait">
+              <MappingFragment StoreEntitySet="Trait">
+                <ScalarProperty Name="Property" ColumnName="Property" />
+                <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+                <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+                <ScalarProperty Name="ListOfValues" ColumnName="ListOfValues" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="DisplayFormat" ColumnName="DisplayFormat" />
+                <ScalarProperty Name="ColumnWidth" ColumnName="ColumnWidth" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="ColumnLabel" ColumnName="ColumnLabel" />
+                <ScalarProperty Name="TraitName" ColumnName="TraitName" />
+                <ScalarProperty Name="TraitTypeID" ColumnName="TraitTypeID" />
+                <ScalarProperty Name="ScreeningFieldNr" ColumnName="ScreeningFieldNr" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="TraitID" ColumnName="TraitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraitInFieldSets">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TraitInFieldSet">
+              <MappingFragment StoreEntitySet="TraitInFieldSet">
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="TraitID" ColumnName="TraitID" />
+                <ScalarProperty Name="FieldSetID" ColumnName="FieldSetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraitTypes">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TraitType">
+              <MappingFragment StoreEntitySet="TraitType">
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="TraitTypeName" ColumnName="TraitTypeName" />
+                <ScalarProperty Name="TraitTypeID" ColumnName="TraitTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraitValues">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TraitValue">
+              <MappingFragment StoreEntitySet="TraitValue">
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="TraitValueName" ColumnName="TraitValueName" />
+                <ScalarProperty Name="TraitValueCode" ColumnName="TraitValueCode" />
+                <ScalarProperty Name="TraitID" ColumnName="TraitID" />
+                <ScalarProperty Name="TraitValueID" ColumnName="TraitValueID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trials">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Trial">
+              <MappingFragment StoreEntitySet="Trial">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="TrialTypeID" ColumnName="TrialTypeID" />
+                <ScalarProperty Name="TrialName" ColumnName="TrialName" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrialEntries">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TrialEntry">
+              <MappingFragment StoreEntitySet="TrialEntry">
+                <ScalarProperty Name="FieldNumber" ColumnName="FieldNumber" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrialRegions">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TrialRegion">
+              <MappingFragment StoreEntitySet="TrialRegion">
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="TrialRegionName" ColumnName="TrialRegionName" />
+                <ScalarProperty Name="TrialRegionID" ColumnName="TrialRegionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrialTypes">
+            <EntityTypeMapping TypeName="Enza.DataAccess.TrialType">
+              <MappingFragment StoreEntitySet="TrialType">
+                <ScalarProperty Name="CropGroupID" ColumnName="CropGroupID" />
+                <ScalarProperty Name="TrialTypeName" ColumnName="TrialTypeName" />
+                <ScalarProperty Name="TrialTypeID" ColumnName="TrialTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Varieties">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Variety">
+              <MappingFragment StoreEntitySet="Variety">
+                <ScalarProperty Name="MasterNr" ColumnName="MasterNr" />
+                <ScalarProperty Name="ResistanceT" ColumnName="ResistanceT" />
+                <ScalarProperty Name="ResistanceIR" ColumnName="ResistanceIR" />
+                <ScalarProperty Name="ResistanceHR" ColumnName="ResistanceHR" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="ProductSegmentCode" ColumnName="ProductSegmentCode" />
+                <ScalarProperty Name="CropSegmentCode" ColumnName="CropSegmentCode" />
+                <ScalarProperty Name="Enumber" ColumnName="Enumber" />
+                <ScalarProperty Name="VarietyName" ColumnName="VarietyName" />
+                <ScalarProperty Name="CropCode" ColumnName="CropCode" />
+                <ScalarProperty Name="VarietyNr" ColumnName="VarietyNr" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VarietyGroups">
+            <EntityTypeMapping TypeName="Enza.DataAccess.VarietyGroup">
+              <MappingFragment StoreEntitySet="VarietyGroup">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TrialRegionID" ColumnName="TrialRegionID" />
+                <ScalarProperty Name="VarietyGroupName" ColumnName="VarietyGroupName" />
+                <ScalarProperty Name="VarietyGroupID" ColumnName="VarietyGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VarietyInGroups">
+            <EntityTypeMapping TypeName="Enza.DataAccess.VarietyInGroup">
+              <MappingFragment StoreEntitySet="VarietyInGroup">
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+                <ScalarProperty Name="VarietyGroupID" ColumnName="VarietyGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_Bvarieties">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_Bvarieties">
+              <MappingFragment StoreEntitySet="Eazy_Bvarieties">
+                <ScalarProperty Name="bvarn_varnum" ColumnName="bvarn_varnum" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_FieldBooks">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_FieldBooks">
+              <MappingFragment StoreEntitySet="Eazy_FieldBooks">
+                <ScalarProperty Name="bfldc_fieldbookcod" ColumnName="bfldc_fieldbookcod" />
+                <ScalarProperty Name="bproc_projectcod" ColumnName="bproc_projectcod" />
+                <ScalarProperty Name="bresc_resgrcod" ColumnName="bresc_resgrcod" />
+                <ScalarProperty Name="vcroc_cropcod" ColumnName="vcroc_cropcod" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_Fields">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_Fields">
+              <MappingFragment StoreEntitySet="Eazy_Fields">
+                <ScalarProperty Name="bfiln_fieldnum" ColumnName="bfiln_fieldnum" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_Lots">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_Lots">
+              <MappingFragment StoreEntitySet="Eazy_Lots">
+                <ScalarProperty Name="blotn_lotnum" ColumnName="blotn_lotnum" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_Plants">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_Plants">
+              <MappingFragment StoreEntitySet="Eazy_Plants">
+                <ScalarProperty Name="bplan_plantnum" ColumnName="bplan_plantnum" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eazy_Vvarieties">
+            <EntityTypeMapping TypeName="Enza.DataAccess.Eazy_Vvarieties">
+              <MappingFragment StoreEntitySet="Eazy_Vvarieties">
+                <ScalarProperty Name="vvarn_varnum" ColumnName="vvarn_varnum" />
+                <ScalarProperty Name="gsysc_syncode" ColumnName="gsysc_syncode" />
+                <ScalarProperty Name="EZID" ColumnName="EZID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceRegistries">
+            <EntityTypeMapping TypeName="Enza.DataAccess.ServiceRegistry">
+              <MappingFragment StoreEntitySet="ServiceRegistry">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Scheme" ColumnName="Scheme" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,22 @@
+﻿@using Enza.Common
+@using Enza.Common.Extensions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="@Url.Content("~/img/favicon.ico")" type="image/x-icon">
+    <link rel="icon" href="@Url.Content("~/img/favicon.ico")" type="image/x-icon">
+    <title>Enza: BAS</title>
+    @Styles.Render("~/Content/style.min.css")
+</head>
+<body>
+    @RenderBody()
+
+    <script type="text/javascript">
+        var userContext = @Html.Raw(((UserProfile)ViewBag.UserContext).ToJson());
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

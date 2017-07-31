@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.2.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.2.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C074D50-6B6E-44B4-A1D4-5CA1A944EA73}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Enza.Services.Gateway</RootNamespace>
+    <AssemblyName>Enza.Services.Gateway</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Enza.Services.Documents.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.3.2\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ObservationController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ObservationModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Enza.Services.Observations.pubxml" />
+    <None Include="Properties\PublishProfiles\Gateway.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Enza.Batches.Entities\Enza.Batches.Entities.csproj">
+      <Project>{BE04AC73-9E47-48E9-B86D-BB35E37F500D}</Project>
+      <Name>Enza.Batches.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.BusinessAccess.Core\Enza.BusinessAccess.Core.csproj">
+      <Project>{443753B2-D1EE-4790-B955-374494B87C44}</Project>
+      <Name>Enza.BusinessAccess.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Common\Enza.Common.csproj">
+      <Project>{04D1A4ED-8951-4C4D-A41E-1F5D2EEB7594}</Project>
+      <Name>Enza.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Crossing.Entities\Enza.Crossing.Entities.csproj">
+      <Project>{72E8CC9E-442C-4F98-AFCA-7DD2C9AA9CAB}</Project>
+      <Name>Enza.Crossing.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.DataAccess\Enza.DataAccess.csproj">
+      <Project>{F73155BA-A2FD-4231-B044-7CA35350A055}</Project>
+      <Name>Enza.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Discovery.Entities\Enza.Discovery.Entities.csproj">
+      <Project>{367D5710-8EF2-4710-9CB3-D1107F4E101E}</Project>
+      <Name>Enza.Discovery.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Entities.Entities\Enza.Entities.Entities.csproj">
+      <Project>{D2F6CC0A-6012-4601-8E4E-5B27B25FBFCD}</Project>
+      <Name>Enza.Entities.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Gateway.Entities\Enza.Gateway.Entities.csproj">
+      <Project>{7c58eeb5-6771-4cf2-804d-95e2164a6ff6}</Project>
+      <Name>Enza.Gateway.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Groups.Entities\Enza.Groups.Entities.csproj">
+      <Project>{D49BDDE2-4027-4F78-9460-340B2D2A79C8}</Project>
+      <Name>Enza.Groups.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Lots.Entities\Enza.Lots.Entities.csproj">
+      <Project>{C9F3DBCB-E1F9-4CCA-AAD9-C24C901EE4B3}</Project>
+      <Name>Enza.Lots.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Masters.Entities\Enza.Masters.Entities.csproj">
+      <Project>{BBC3CB20-708B-4017-A916-EBC1F2C03D6D}</Project>
+      <Name>Enza.Masters.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Observations.Entities\Enza.Observations.Entities.csproj">
+      <Project>{A2C37108-3FDB-475D-AB81-3A74FC986353}</Project>
+      <Name>Enza.Observations.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Plants.Entities\Enza.Plants.Entities.csproj">
+      <Project>{059B3A12-358F-4A3F-AE81-CB71F84B6AF5}</Project>
+      <Name>Enza.Plants.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Batches\Enza.Services.API.Batches.csproj">
+      <Project>{DEF6D460-448E-4973-86E4-2338CDB04F72}</Project>
+      <Name>Enza.Services.API.Batches</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Core\Enza.Services.API.Core.csproj">
+      <Project>{3678BE1E-7FD5-4A79-A40B-2F346B9C2C79}</Project>
+      <Name>Enza.Services.API.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Crossings\Enza.Services.API.Crossings.csproj">
+      <Project>{9C96B154-390E-4D31-B1BB-09D4BF886205}</Project>
+      <Name>Enza.Services.API.Crossings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Discovery\Enza.Services.API.Discovery.csproj">
+      <Project>{EDB0B05B-394C-4070-86B0-893998AF847D}</Project>
+      <Name>Enza.Services.API.Discovery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Entities\Enza.Services.API.Entities.csproj">
+      <Project>{D3174883-9A92-434E-A758-CD3AEB39E556}</Project>
+      <Name>Enza.Services.API.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Lots\Enza.Services.API.Lots.csproj">
+      <Project>{1C8DB708-7E96-419C-979B-FA2C7D12845C}</Project>
+      <Name>Enza.Services.API.Lots</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Masters\Enza.Services.API.Masters.csproj">
+      <Project>{2ED4C6AA-B5C8-4039-BE6F-9D73B0D2A132}</Project>
+      <Name>Enza.Services.API.Masters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Observations\Enza.Services.API.Observations.csproj">
+      <Project>{2D881D29-6943-4D6B-A5A7-F9D0A3EC908D}</Project>
+      <Name>Enza.Services.API.Observations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Plants\Enza.Services.API.Plants.csproj">
+      <Project>{DA9B5607-A6E6-4FDF-8444-3AA99325F3D0}</Project>
+      <Name>Enza.Services.API.Plants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.API.Trial\Enza.Services.API.Trial.csproj">
+      <Project>{6F38A384-2D13-4F64-A724-F5273947DD60}</Project>
+      <Name>Enza.Services.API.Trial</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Services.Core\Enza.Services.Core.csproj">
+      <Project>{8C8E5871-2EAF-4326-A2D9-CB5F49A6FB9E}</Project>
+      <Name>Enza.Services.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enza.Trial.Entities\Enza.Trial.Entities.csproj">
+      <Project>{F60F5EEA-0A02-46B8-80BF-E6C50EFCD08B}</Project>
+      <Name>Enza.Trial.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50781</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Enza.Services.Gateway</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.2.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.2.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <Import Project="..\packages\OctoPack.3.0.71\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.71\tools\OctoPack.targets')" />
+  <Target Name="EnsureOctoPackImported" BeforeTargets="BeforeBuild" Condition="'$(OctoPackImported)' == ''">
+    <Error Condition="!Exists('..\packages\OctoPack.3.0.71\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="You are trying to build with OctoPack, but the NuGet targets file that OctoPack depends on is not available on this computer. This is probably because the OctoPack package has not been committed to source control, or NuGet Package Restore is not enabled. Please enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\OctoPack.3.0.71\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="OctoPack cannot be run because NuGet packages were restored prior to the build running, and the targets file was unavailable when the build started. Please build the project again to include these packages in the build. You may also need to make sure that your build server does not delete packages prior to each build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

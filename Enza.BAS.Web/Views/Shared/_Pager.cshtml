@@ -1,0 +1,23 @@
+﻿@using Javra.Web.Models.Extensions
+@using PagedList.Mvc
+@model PagedList.IPagedList
+@if (Model.PageCount > 0)
+{
+    if (Model.HasNextPage || Model.HasPreviousPage)
+    {
+        @Html.PagedListPager(Model, page => Html.PagerQueryLink(page), new PagedListRenderOptions
+        {
+            MaximumPageNumbersToDisplay = 5,
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToLastPage = PagedListDisplayMode.Always
+        })
+    }
+}
+else
+{
+    <div class="text-center">
+        <h4>Empty rows.</h4>
+    </div>
+}
